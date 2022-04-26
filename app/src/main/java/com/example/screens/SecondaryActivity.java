@@ -40,13 +40,15 @@ public class SecondaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondary);
         Log.d("==>", "SecondaryActivity onCreate ran");
-        nameview = findViewById(R.id.username);
+        nameview = findViewById(R.id.usernameview);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
         String username = extras.getString("username");
         Log.d("==>", "Username from intent:"+username);
+
+        nameview.setText(username);
 
     }
 }

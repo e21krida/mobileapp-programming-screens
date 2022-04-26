@@ -2,8 +2,10 @@ package com.example.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -44,5 +46,15 @@ public class MainActivity extends AppCompatActivity {
 
         btn = findViewById(R.id.button);
         username = findViewById(R.id.username);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>", "Button Pressed");
+                Log.d("==>", "Username:"+username.getText().toString());
+                Intent intent = new Intent(MainActivity.this, SecondaryActivity.class);
+                intent.putExtra("username", username.getText().toString());
+                startActivity(intent);
+            }
+        });
     }
 }

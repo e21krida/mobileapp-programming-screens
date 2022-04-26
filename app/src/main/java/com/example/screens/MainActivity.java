@@ -4,8 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button btn;
+    private EditText username;
+
     @Override
     protected void onPostResume() {
         super.onPostResume();
@@ -35,5 +41,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("==>", "MainActivity onPostResume ran");
+
+        btn = findViewById(R.id.button);
+        username = findViewById(R.id.username);
     }
 }

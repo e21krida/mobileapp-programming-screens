@@ -2,10 +2,15 @@ package com.example.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 public class SecondaryActivity extends AppCompatActivity {
+
+    private TextView nameview;
+
     @Override
     protected void onPostResume() {
         super.onPostResume();
@@ -35,5 +40,13 @@ public class SecondaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondary);
         Log.d("==>", "SecondaryActivity onCreate ran");
+        nameview = findViewById(R.id.username);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        String username = extras.getString("username");
+        Log.d("==>", "Username from intent:"+username);
+
     }
 }
